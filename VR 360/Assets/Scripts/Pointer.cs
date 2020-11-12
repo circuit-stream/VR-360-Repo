@@ -15,7 +15,7 @@ public class Pointer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetAxis(m_triggerName) >0.8f)
+        if(Input.GetAxis(m_triggerName) > 0.8f)
         {
             m_triggerHeld = true;
             RaycastHit hit;
@@ -34,11 +34,11 @@ public class Pointer : MonoBehaviour
                 m_gate = null;
             }
         }
-        else if(Input.GetAxis(m_triggerName) > 0.8f && m_triggerHeld)
+        else if(Input.GetAxis(m_triggerName) < 0.8f && m_triggerHeld)
         {
             if(m_gate)
             {
-                m_gate.SendMessage("ToggleGate");
+                m_gate.gameObject.SendMessage("ToggleGate");
                 m_gate = null;
             }
             m_line.enabled = false;
